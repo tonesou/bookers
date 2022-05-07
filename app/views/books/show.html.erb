@@ -1,14 +1,19 @@
-<p>Book was succesfully created</p>
+   <% if flash[:notice] %>
+     <p id="notice">
+       <font color="green"><%= flash[:notice] %></font>
+     </p>
+   <% end %>
 
 <p>
     <strong>Title:</strong>
+    <%= @book.title %>
 </p>
-<p><%= @book.title %></p>
 
 <p>
     <strong>Body:</strong>
+    <%= @book.body %>
 </p>
-<p><%= @book.body %></p>
-
-<%= link_to "Edit", edit_book_path(@book.id) %>
-<%=link_to 'back',books_path, class:'back-btn' %>
+<p>
+<%= link_to "Edit", edit_book_path(@book.id) %> |
+<%=link_to 'Back',books_path, class:'back-btn' %>
+</p>
